@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO 基础 Meta -->
+  <title>龙虾机器人 — OpenClaw 中文版 | AI 个人助手，真正能做事的 AI</title>
+  <meta name="description"
+    content="龙虾机器人（OpenClaw 中文版）— 真正能做事的 AI 个人助手。通过微信、Telegram 等聊天应用操控，帮你清理收件箱、发送邮件、管理日程、浏览网页。支持 Mac、Windows、Linux，隐私优先。">
+  <meta name="keywords" content="龙虾机器人,OpenClaw,openclaw中文版,龙虾机器人助手,AI助手,AI个人助手,智能助手,聊天机器人,Telegram机器人,微信AI">
+  <meta name="author" content="OpenClaw Community">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://openclavv.ai/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://openclavv.ai/">
+  <meta property="og:title" content="龙虾机器人 — OpenClaw 中文版 | AI 个人助手">
+  <meta property="og:description" content="龙虾机器人 — 真正能做事的 AI。通过微信、Telegram 等聊天应用即可操控的个人 AI 助手。">
+  <meta property="og:image" content="https://openclavv.ai/og-image.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="龙虾机器人 OpenClaw">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://openclavv.ai/">
+  <meta name="twitter:title" content="龙虾机器人 — OpenClaw 中文版 | AI 个人助手">
+  <meta name="twitter:description" content="龙虾机器人 — 真正能做事的 AI。通过微信、Telegram 等聊天应用即可操控的个人 AI 助手。">
+  <meta name="twitter:image" content="https://openclavv.ai/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦞</text></svg>">
+
+  <!-- 样式 -->
+  <link rel="stylesheet" href="index.css">
+
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "龙虾机器人 — OpenClaw 中文版",
+        "alternateName": ["OpenClaw", "openclaw中文版", "龙虾机器人助手"],
+        "url": "https://openclavv.ai/",
+        "description": "龙虾机器人（OpenClaw 中文版）— 真正能做事的 AI 个人助手",
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://openclavv.ai/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "OpenClaw",
+        "alternateName": "龙虾机器人",
+        "url": "https://openclavv.ai/",
+        "description": "OpenClaw 开源 AI 助手社区"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "龙虾机器人",
+        "alternateName": ["OpenClaw", "openclaw中文版", "龙虾机器人助手"],
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "description": "真正能做事的 AI 个人助手。通过微信、Telegram 等聊天应用即可操控。支持浏览器控制、文件读写、持久记忆等功能。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CNY"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- 星空背景 -->
+  <canvas id="starfield"></canvas>
+  <div class="bg-gradient-overlay"></div>
+
+  <!-- 主题切换 -->
+  <button class="theme-toggle" id="themeToggle" title="切换主题" aria-label="切换深色/浅色主题">☀️</button>
+
+  <main class="content-wrapper" role="main">
+
+    <!-- ============ HERO 区域 ============ -->
+    <section class="hero" id="hero" aria-label="龙虾机器人介绍">
+      <div class="hero-logo">
+        <svg class="logo-img" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+          aria-label="龙虾机器人 OpenClaw Logo">
+          <title>龙虾机器人 Logo</title>
+          <path
+            d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z"
+            fill="url(#lobster-gradient)"></path>
+          <path d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z" fill="url(#lobster-gradient)"></path>
+          <path d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z"
+            fill="url(#lobster-gradient)"></path>
+          <path d="M45 15 Q35 5 30 8" stroke="#ff8e8e" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M75 15 Q85 5 90 8" stroke="#ff8e8e" stroke-width="2" stroke-linecap="round"></path>
+          <circle cx="45" cy="35" r="6" fill="#050810"></circle>
+          <circle cx="75" cy="35" r="6" fill="#050810"></circle>
+          <circle cx="46" cy="34" r="2" fill="#00e5cc"></circle>
+          <circle cx="76" cy="34" r="2" fill="#00e5cc"></circle>
+          <defs>
+            <linearGradient id="lobster-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff6b6b"></stop>
+              <stop offset="100%" stop-color="#ff4d4d"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <h1 class="hero-title">龙虾机器人<span class="sr-only"> — OpenClaw 中文版 AI 个人助手</span></h1>
+      <p class="hero-tagline">真正能做事的 AI。</p>
+      <p class="hero-description">
+        清理收件箱、发送邮件、管理日程、帮你值机。
+        通过微信、Telegram 或你正在使用的任何聊天应用即可操控你的龙虾机器人助手。
+      </p>
+
+      <a href="#" class="announcement-banner">
+        <span class="badge">最新</span>
+        <span>龙虾机器人与 VirusTotal 达成技能安全合作</span>
+        <span class="arrow">→</span>
+      </a>
+    </section>
+
+    <!-- ============ 推荐语区域 ============ -->
+    <section class="testimonials scroll-reveal">
+      <div class="testimonials-header">
+        <h2 class="section-title"><span class="bracket">⟩</span> 用户评价</h2>
+        <a href="#" class="view-all">查看全部 →</a>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-in">
+          <p class="quote">"我有一个住在 Telegram 里的 AI，它真的能帮我做事。未来已来。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/ivanfioravanti" alt="avatar">
+            <span class="author-handle">@techfan</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <p class="quote">"当前开源应用的能力水平：什么都能做、什么都能连、什么都能记。一切都在融为一体。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/jakubkrcmar" alt="avatar">
+            <span class="author-handle">@jakubkrcmar</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <p class="quote">"我太喜欢这个了，以至于想克隆一个，它还教了我怎么做。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/danpeguine" alt="avatar">
+            <span class="author-handle">@jdrhyne</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <p class="quote">"它改变了我的生活。一个真正听话做事的 AI。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/nateliason" alt="avatar">
+            <span class="author-handle">@devuser</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <p class="quote">"@steipete 用龙虾机器人做出的东西简直超出想象。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/karpathy" alt="avatar">
+            <span class="author-handle">@KrauseFx</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <p class="quote">"几分钟就用龙虾机器人助手搞定了 RSS 解析设置。"</p>
+          <div class="author">
+            <img class="avatar" src="https://unavatar.io/x/marvelgirl_eth" alt="avatar">
+            <span class="author-handle">@rafadc</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ 功能介绍区域 ============ -->
+    <section class="features scroll-reveal">
+      <h2 class="section-title"><span class="bracket">⟩</span> 它能做什么</h2>
+      <div class="features-grid">
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <h3>在你的设备上运行</h3>
+          <p>Mac、Windows 或 Linux。支持 Anthropic、OpenAI 或本地模型。默认隐私优先——你的数据属于你。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <h3>任意聊天应用</h3>
+          <p>通过微信、Telegram、Discord、Slack、Signal 或 iMessage 与它对话。支持私聊和群聊。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+              <path d="M8 12a4 4 0 0 1 8 0" />
+            </svg>
+          </div>
+          <h3>持久记忆</h3>
+          <p>记住你、成为独属于你的 AI。你的偏好、你的上下文、你的 AI。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </div>
+          <h3>浏览器控制</h3>
+          <p>它能浏览网页、填写表单，从任何网站提取数据。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <polyline points="4 17 10 11 4 5" />
+              <line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+          </div>
+          <h3>完整系统访问</h3>
+          <p>读写文件、执行 Shell 命令、运行脚本。完全访问或沙盒隔离——你说了算。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg>
+          </div>
+          <h3>技能与插件</h3>
+          <p>使用社区技能扩展功能或构建自己的插件。它甚至能自己编写技能。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 集成展示区域 ============ -->
+    <section class="integrations scroll-reveal">
+      <h2 class="section-title"><span class="bracket">⟩</span> 兼容一切</h2>
+      <div class="integration-tags">
+        <span class="integration-tag"><span class="tag-icon">📱</span> 微信</span>
+        <span class="integration-tag"><span class="tag-icon">✈️</span> Telegram</span>
+        <span class="integration-tag">
+          <span class="tag-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.2260-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.8733.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+            </svg></span> Discord
+        </span>
+        <span class="integration-tag"><span class="tag-icon">#</span> Slack</span>
+        <span class="integration-tag"><span class="tag-icon">🟢</span> Signal</span>
+        <span class="integration-tag"><span class="tag-icon">🍎</span> iMessage</span>
+        <span class="integration-tag"><span class="tag-icon">🤖</span> Claude</span>
+      </div>
+      <div class="integration-tags">
+        <span class="integration-tag"><span class="tag-icon">🧪</span> GPT</span>
+        <span class="integration-tag"><span class="tag-icon">🎵</span> Spotify</span>
+        <span class="integration-tag"><span class="tag-icon">💡</span> Hue</span>
+        <span class="integration-tag"><span class="tag-icon">📝</span> Obsidian</span>
+        <span class="integration-tag">
+          <span class="tag-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></span> Twitter
+        </span>
+        <span class="integration-tag"><span class="tag-icon">🌐</span> 浏览器</span>
+        <span class="integration-tag"><span class="tag-icon">📧</span> Gmail</span>
+        <span class="integration-tag">
+          <span class="tag-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg></span> GitHub
+        </span>
+      </div>
+      <div class="integrations-links">
+        <a href="#">查看全部 50+ 集成 →</a>
+        <span style="color: var(--text-muted)">·</span>
+        <a href="#">看看大家都做了什么 →</a>
+      </div>
+    </section>
+
+    <!-- ============ 媒体报道区域 ============ -->
+    <section class="featured scroll-reveal">
+      <h2 class="section-title"><span class="bracket">⟩</span> 媒体报道</h2>
+      <div class="featured-grid">
+        <a href="#" class="featured-card animate-in">
+          <span class="featured-source">MacStories</span>
+          <span class="featured-quote">"龙虾机器人让我看到了个人 AI 助手的未来"</span>
+          <span class="featured-author">Federico Viticci</span>
+        </a>
+        <a href="#" class="featured-card animate-in">
+          <span class="featured-source">StarryHope</span>
+          <span class="featured-quote">"龙虾入侵：为什么开发者们纷纷购买 Mac Mini 来运行自己的 AI 助手"</span>
+          <span class="featured-author">Jim Mendenhall</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ CTA 卡片区域 ============ -->
+    <section class="cta-section scroll-reveal">
+      <div class="cta-grid">
+        <a href="#" class="cta-card animate-in">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+              <path
+                d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.8733.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+            </svg>
+          </div>
+          <h3>Discord</h3>
+          <p>加入社区</p>
+        </a>
+        <a href="#" class="cta-card animate-in">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" width="32" height="32">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+          </div>
+          <h3>文档</h3>
+          <p>快速上手</p>
+        </a>
+        <a href="#" class="cta-card animate-in">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </div>
+          <h3>GitHub</h3>
+          <p>查看源码</p>
+        </a>
+        <a href="#" class="cta-card animate-in">
+          <div class="cta-icon">
+            <svg viewBox="0 0 120 120" fill="none" width="32" height="32">
+              <path
+                d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z"
+                fill="#ff6b6b" />
+              <circle cx="45" cy="35" r="6" fill="#050810" />
+              <circle cx="75" cy="35" r="6" fill="#050810" />
+              <circle cx="46" cy="34" r="2" fill="#00e5cc" />
+              <circle cx="76" cy="34" r="2" fill="#00e5cc" />
+            </svg>
+          </div>
+          <h3>技能中心</h3>
+          <p>下载技能</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Newsletter 区域 ============ -->
+    <section class="newsletter scroll-reveal">
+      <div class="newsletter-box">
+        <h2 class="section-title"><span class="bracket">⟩</span> 保持关注</h2>
+        <p class="newsletter-description">获取新功能、集成和龙虾智慧的更新。不发垃圾邮件，随时退订。</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit" class="subscribe-btn">订阅 <span>→</span></button>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ============ 页脚 ============ -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">博客</a>
+        <span class="dot">·</span>
+        <a href="#">作品展示</a>
+        <span class="dot">·</span>
+        <a href="#">用户好评</a>
+        <span class="dot">·</span>
+        <a href="#">集成</a>
+        <span class="dot">·</span>
+        <a href="#">信任</a>
+      </div>
+      <p class="footer-credit">
+        由 <a href="#">Molty</a> 🦞 构建，一只有灵魂的太空龙虾 AI，出自 <a href="#">Peter Steinberger</a> 和 <a href="#">社区</a>。
+      </p>
+      <p class="footer-disclaimer">
+        原名 Clawdbot 和 Moltbot。独立项目，与 Anthropic 无关。
+      </p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
