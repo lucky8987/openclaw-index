@@ -6,13 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO 基础 Meta -->
-  <title>龙虾机器人 — OpenClaw 中文版 | AI 个人助手，真正能做事的 AI</title>
+  <title>龙虾机器人 (OpenClaw) — 真正能做事的 AI 个人助手 | 官方中文网站</title>
   <meta name="description"
-    content="龙虾机器人（OpenClaw 中文版）— 真正能做事的 AI 个人助手。通过微信、Telegram 等聊天应用操控，帮你清理收件箱、发送邮件、管理日程、浏览网页。支持 Mac、Windows、Linux，隐私优先。">
-  <meta name="keywords" content="龙虾机器人,OpenClaw,openclaw中文版,龙虾机器人助手,AI助手,AI个人助手,智能助手,聊天机器人,Telegram机器人,微信AI">
+    content="龙虾机器人（OpenClaw 中文版）是一款隐私优先、真正能做事的 AI 个人助手。通过微信、Telegram 即可操控，具备浏览器控制、系统访问、持久记忆等技能，支持 Mac、Windows、Linux 多平台运行。">
+  <meta name="keywords"
+    content="龙虾机器人,OpenClaw,openclaw中文版,龙虾机器人助手,AI助手,AI个人助手,智能助手,聊天机器人,Telegram机器人,微信AI,开源AI助理,AI自动化">
   <meta name="author" content="OpenClaw Community">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://openclavv.ai/">
+  <link rel="alternate" hreflang="zh-CN" href="https://openclavv.ai/">
+  <link rel="alternate" hreflang="x-default" href="https://openclavv.ai/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://openclavv.ai/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -42,11 +46,15 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "name": "龙虾机器人 — OpenClaw 中文版",
+        "@id": "https://openclavv.ai/#website",
+        "name": "龙虾机器人 — OpenClaw",
         "alternateName": ["OpenClaw", "openclaw中文版", "龙虾机器人助手"],
         "url": "https://openclavv.ai/",
         "description": "龙虾机器人（OpenClaw 中文版）— 真正能做事的 AI 个人助手",
         "inLanguage": "zh-CN",
+        "publisher": {
+          "@id": "https://openclavv.ai/#organization"
+        },
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://openclavv.ai/?q={search_term_string}",
@@ -55,23 +63,28 @@
       },
       {
         "@type": "Organization",
+        "@id": "https://openclavv.ai/#organization",
         "name": "OpenClaw",
         "alternateName": "龙虾机器人",
         "url": "https://openclavv.ai/",
+        "logo": "https://openclavv.ai/favicon.ico",
         "description": "OpenClaw 开源 AI 助手社区"
       },
       {
         "@type": "SoftwareApplication",
         "name": "龙虾机器人",
-        "alternateName": ["OpenClaw", "openclaw中文版", "龙虾机器人助手"],
+        "alternateName": ["OpenClaw", "openclaw中文版", "龙虾机器人助手", "Moltbot"],
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "macOS, Windows, Linux",
-        "description": "真正能做事的 AI 个人助手。通过微信、Telegram 等聊天应用即可操控。支持浏览器控制、文件读写、持久记忆等功能。",
+        "description": "真正能做事的 AI 个人助手。支持浏览器控制、文件读写、持久记忆等功能，通过微信、Telegram 即可操控。",
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "CNY"
-        }
+          "priceCurrency": "CNY",
+          "availability": "https://schema.org/InStock"
+        },
+        "screenshot": "https://openclavv.ai/og-image.png",
+        "featureList": ["浏览器控制", "文件读写", "系统访问", "社交软件集成", "本地模型支持"]
       }
     ]
   }
@@ -149,42 +162,42 @@
         <div class="testimonial-card animate-in">
           <p class="quote">"我有一个住在 Telegram 里的 AI，它真的能帮我做事。未来已来。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/ivanfioravanti" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/ivanfioravanti" alt="用户 @techfan 的头像 - 龙虾机器人好评">
             <span class="author-handle">@techfan</span>
           </div>
         </div>
         <div class="testimonial-card animate-in">
           <p class="quote">"当前开源应用的能力水平：什么都能做、什么都能连、什么都能记。一切都在融为一体。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/jakubkrcmar" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/jakubkrcmar" alt="用户 @jakubkrcmar 的头像 - OpenClaw 社区开发者">
             <span class="author-handle">@jakubkrcmar</span>
           </div>
         </div>
         <div class="testimonial-card animate-in">
           <p class="quote">"我太喜欢这个了，以至于想克隆一个，它还教了我怎么做。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/danpeguine" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/danpeguine" alt="用户 @jdrhyne 的头像 - 龙虾机器人助手忠实用户">
             <span class="author-handle">@jdrhyne</span>
           </div>
         </div>
         <div class="testimonial-card animate-in">
           <p class="quote">"它改变了我的生活。一个真正听话做事的 AI。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/nateliason" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/nateliason" alt="用户 @devuser 的头像">
             <span class="author-handle">@devuser</span>
           </div>
         </div>
         <div class="testimonial-card animate-in">
           <p class="quote">"@steipete 用龙虾机器人做出的东西简直超出想象。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/karpathy" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/karpathy" alt="用户 @KrauseFx 的头像">
             <span class="author-handle">@KrauseFx</span>
           </div>
         </div>
         <div class="testimonial-card animate-in">
           <p class="quote">"几分钟就用龙虾机器人助手搞定了 RSS 解析设置。"</p>
           <div class="author">
-            <img class="avatar" src="https://unavatar.io/x/marvelgirl_eth" alt="avatar">
+            <img class="avatar" src="https://unavatar.io/x/marvelgirl_eth" alt="用户 @rafadc 的头像">
             <span class="author-handle">@rafadc</span>
           </div>
         </div>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /zh-CN/
+Allow: /zh-CN/index.html
+Allow: /mintlify-assets/
+
+Sitemap: https://openclavv.ai/sitemap.xml
