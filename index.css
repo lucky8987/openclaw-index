@@ -802,6 +802,167 @@ section {
 }
 
 /* ============================================
+   快速下载区域重构 (对标图 2)
+   ============================================ */
+.download-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 改为左对齐 */
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.download-section .section-title {
+    margin-bottom: 12px;
+    align-self: flex-start;
+    width: 100%;
+    max-width: 760px;
+}
+
+/* 药丸型 Tab 栏 */
+.download-tabs {
+    display: inline-flex;
+    background: #1a1b26;
+    /* 深蓝黑背景 */
+    padding: 6px;
+    border-radius: 50px;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tab-btn {
+    padding: 10px 24px;
+    border: none;
+    background: transparent;
+    color: #9898b0;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+    background: #ff4757;
+    /* 珊瑚红，对标图 2 */
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* 独立显示框 */
+.download-content {
+    width: 100%;
+    max-width: 760px;
+}
+
+.platform-block {
+    display: none;
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.platform-block.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.code-box {
+    background: #1a1b26;
+    border-radius: 20px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.code-box:hover {
+    border-color: rgba(0, 242, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.code-text {
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 1rem;
+    color: #00f2ff;
+    /* 亮青色，对标图 2 程序高亮 */
+    word-break: break-all;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.code-text .dim {
+    color: #565f89;
+    font-size: 0.9rem;
+    margin-left: 12px;
+    font-family: var(--font-main);
+}
+
+.copy-icon-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #565f89;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.copy-icon-btn:hover {
+    background: rgba(0, 242, 255, 0.1);
+    color: #00f2ff;
+    border-color: rgba(0, 242, 255, 0.2);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .download-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 8px;
+    }
+
+    .code-box {
+        padding: 16px 20px;
+    }
+
+    .code-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
    响应式设计
    ============================================ */
 @media (max-width: 900px) {
@@ -861,5 +1022,5 @@ section {
     section {
         padding-left: 16px;
         padding-right: 16px;
-    }
-}
+    }}  
+} 

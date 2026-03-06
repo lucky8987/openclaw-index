@@ -6,7 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
   initStarfield();
   initScrollReveal();
   initCopyButton();
+  initDownloadTabs();
 });
+
+// ============================================
+// 快速下载 Tab 切换
+// ============================================
+function initDownloadTabs() {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const blocks = document.querySelectorAll('.platform-block');
+
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const platform = tab.getAttribute('data-platform');
+
+      // 切换按钮状态
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // 切换内容块
+      blocks.forEach(block => {
+        block.classList.remove('active');
+        if (block.id === `download-${platform}`) {
+          block.classList.add('active');
+        }
+      });
+    });
+  });
+}
 
 // ============================================
 // 星空背景动画
@@ -105,3 +134,24 @@ function initCopyButton() {
     });
   });
 }
+// ============================================
+// 通用工具：复制到剪贴板
+// ============================================
+window.copyToClipboard = function (text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2dd4a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    `;
+    btn.style.borderColor = "#2dd4a8";
+
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.style.borderColor = "";
+    }, 2000);
+  }).catch(err => {
+    console.error('无法复制: ', err);
+  });
+};
