@@ -2,6 +2,9 @@
 // OpenClaw Clone - 交互逻辑
 // ============================================
 
+// 从全局配置获取API地址
+const apiBaseUrl = window.AppConfig ? window.AppConfig.API_BASE_URL : 'http://localhost:8080';
+
 document.addEventListener('DOMContentLoaded', () => {
   initStarfield();
   initScrollReveal();
@@ -155,3 +158,120 @@ window.copyToClipboard = function (text, btn) {
     console.error('无法复制: ', err);
   });
 };
+
+// ============================================
+// 更新导航栏用户状态
+// ============================================
+function updateAuthStatus() {
+  const token = localStorage.getItem('jwt_token');
+  const username = localStorage.getItem('username');
+  const authArea = document.getElementById('authArea');
+
+  if (!authArea) return;
+
+  // 龙虾图标 SVG
+  const lobsterIcon = `
+    <svg class="lobster-mini-icon" viewBox="0 0 120 120" fill="none" width="24" height="24" style="margin-right: 8px;">
+      <path d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z" fill="url(#lobster-gradient-mini)"></path>
+      <path d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z" fill="url(#lobster-gradient-mini)"></path>
+      <path d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z" fill="url(#lobster-gradient-mini)"></path>
+      <path d="M45 15 Q35 5 30 8" stroke="#ff8e8e" stroke-width="2" stroke-linecap="round"></path>
+      <path d="M75 15 Q85 5 90 8" stroke="#ff8e8e" stroke-width="2" stroke-linecap="round"></path>
+      <circle cx="45" cy="35" r="6" fill="#050810"></circle>
+      <circle cx="75" cy="35" r="6" fill="#050810"></circle>
+      <circle cx="46" cy="34" r="2" fill="#00e5cc"></circle>
+      <circle cx="76" cy="34" r="2" fill="#00e5cc"></circle>
+      <defs>
+        <linearGradient id="lobster-gradient-mini" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff6b6b"></stop>
+          <stop offset="100%" stop-color="#ff4d4d"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  `;
+
+  if (token && username) {
+    // 已登录：显示龙虾图标和用户名
+    authArea.innerHTML = `
+      <div class="user-menu">
+        <button class="auth-btn user-btn" title="用户菜单">
+          ${lobsterIcon}
+          ${username}
+        </button>
+        <div class="user-dropdown">
+          <a href="./zh-CN/index.html" class="dropdown-item">文档中心</a>
+          <button onclick="handleLogout()" class="dropdown-item">退出登录</button>
+        </div>
+      </div>
+    `;
+  } else {
+    // 未登录：显示龙虾图标和登录按钮
+    authArea.innerHTML = `
+      <a href="./login.html" class="auth-btn" title="登录或注册" id="authBtn">
+        ${lobsterIcon}
+        登录/注册
+      </a>
+    `;
+  }
+
+  // 添加CSS样式
+  const style = document.createElement('style');
+  style.textContent = `
+    .user-menu {
+      position: relative;
+      display: inline-block;
+    }
+    .user-btn {
+      cursor: pointer;
+    }
+    .lobster-mini-icon {
+      filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+    }
+    .user-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      min-width: 160px;
+      background: rgba(18, 18, 40, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(80, 80, 120, 0.25);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 1000;
+    }
+    .user-menu:hover .user-dropdown {
+      display: block;
+    }
+    .dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      color: #9898b0;
+      text-decoration: none;
+      font-size: 14px;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dropdown-item:hover {
+      background: rgba(231, 76, 60, 0.1);
+      color: #f0f0f5;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// 登出处理
+function handleLogout() {
+  localStorage.removeItem('jwt_token');
+  localStorage.removeItem('username');
+  window.location.reload();
+}
+
+// 页面加载时更新认证状态
+document.addEventListener('DOMContentLoaded', updateAuthStatus);

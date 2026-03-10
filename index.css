@@ -95,15 +95,14 @@ a:hover {
         radial-gradient(ellipse 60% 40% at 20% 80%, rgba(10, 10, 60, 0.15) 0%, transparent 50%);
 }
 
-/* -- 主题切换按钮 -- */
-.theme-toggle {
+/* -- 登录/注册按钮 -- */
+.auth-btn {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 100;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    padding: 10px 20px;
+    border-radius: 50px;
     border: 1px solid var(--border-card);
     background: var(--bg-card);
     backdrop-filter: blur(10px);
@@ -112,13 +111,32 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
     transition: all 0.3s;
+    text-decoration: none;
 }
 
-.theme-toggle:hover {
-    border-color: var(--border-card-hover);
-    color: var(--text-primary);
+.auth-btn:hover {
+    border-color: var(--accent-red);
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--accent-red);
+    box-shadow: 0 4px 20px var(--accent-red-glow);
+}
+
+.auth-btn svg,
+.auth-btn .lobster-mini-icon {
+    flex-shrink: 0;
+}
+
+/* 龙虾小图标样式 */
+.lobster-mini-icon {
+    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+    transition: filter 0.3s;
+}
+
+.auth-btn:hover .lobster-mini-icon {
+    filter: drop-shadow(0 0 12px rgba(255, 107, 107, 0.6));
 }
 
 /* -- 内容容器 -- */
@@ -1022,5 +1040,7 @@ section {
     section {
         padding-left: 16px;
         padding-right: 16px;
-    }}  
-} 
+    }}
+}
+
+/* ============================================

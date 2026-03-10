@@ -106,8 +106,16 @@
   <canvas id="starfield"></canvas>
   <div class="bg-gradient-overlay"></div>
 
-  <!-- 主题切换 -->
-  <button class="theme-toggle" id="themeToggle" title="切换主题" aria-label="切换深色/浅色主题">☀️</button>
+  <!-- 登���/注册按钮 -->
+  <div id="authArea">
+    <a href="./login.html" class="auth-btn" title="登录或注册" id="authBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="margin-right: 6px;">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      登录/注册
+    </a>
+  </div>
 
   <main class="content-wrapper" role="main">
 
@@ -207,126 +215,6 @@
       </div>
     </section>
 
-    <!-- ============ 快速下载区域 ============ -->
-    <section class="download-section scroll-reveal">
-      <h2 class="section-title"><span class="bracket">⟩</span> 立即下载</h2>
-      <div class="download-tabs">
-        <button class="tab-btn active" data-platform="windows">Windows</button>
-        <button class="tab-btn" data-platform="macos">macOS</button>
-        <button class="tab-btn" data-platform="linux">Linux</button>
-        <button class="tab-btn" data-platform="npm">npm</button>
-        <button class="tab-btn" data-platform="docker">Docker</button>
-        <button class="tab-btn" data-platform="homebrew">Homebrew</button>
-        <button class="tab-btn" data-platform="hackable">Hackable</button>
-      </div>
-
-      <div class="download-content">
-        <!-- Windows -->
-        <div class="platform-block active" id="download-windows">
-          <div class="code-box">
-            <span class="code-text">OpenClaw.boot_x64-setup.exe <span class="dim">(Windows 10/11 x64)</span></span>
-            <a href="./install-package/OpenClaw.boot_x64-setup.exe" class="copy-icon-btn" title="下载 Windows 版">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- macOS -->
-        <div class="platform-block" id="download-macos">
-          <div class="code-box">
-            <span class="code-text">OpenClaw.boot_universal.dmg <span class="dim">(Intel & Apple Silicon)</span></span>
-            <a href="./install-package/OpenClaw.boot_universal.dmg" class="copy-icon-btn" title="下载 macOS 版">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Linux -->
-        <div class="platform-block" id="download-linux">
-          <div class="code-box">
-            <span class="code-text">OpenClaw.boot_amd64.deb <span class="dim">(Ubuntu/Debian)</span></span>
-            <a href="./install-package/OpenClaw.boot_amd64.deb" class="copy-icon-btn" title="下载 Linux 版">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- npm -->
-        <div class="platform-block" id="download-npm">
-          <div class="code-box">
-            <span class="code-text">npm install -g openclaw@latest</span>
-            <button class="copy-icon-btn" onclick="copyToClipboard('npm install -g openclaw@latest', this)"
-              title="复制代码">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Docker -->
-        <div class="platform-block" id="download-docker">
-          <div class="code-box">
-            <span class="code-text">docker run -d --name openclaw openclaw/openclaw</span>
-            <button class="copy-icon-btn"
-              onclick="copyToClipboard('docker run -d --name openclaw openclaw/openclaw', this)" title="复制代码">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Homebrew -->
-        <div class="platform-block" id="download-homebrew">
-          <div class="code-box">
-            <span class="code-text">brew install openclaw/tap/openclaw</span>
-            <button class="copy-icon-btn" onclick="copyToClipboard('brew install openclaw/tap/openclaw', this)"
-              title="复制代码">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Hackable -->
-        <div class="platform-block" id="download-hackable">
-          <div class="code-box">
-            <span class="code-text">git clone https://github.com/openclaw/openclaw.git</span>
-            <button class="copy-icon-btn"
-              onclick="copyToClipboard('git clone https://github.com/openclaw/openclaw.git', this)" title="复制代码">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
     <!-- ============ 功能介绍区域 ============ -->
