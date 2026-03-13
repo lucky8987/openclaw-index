@@ -89,7 +89,7 @@ const AppConfig = {
     /**
      * 需要登录才能访问的页面
      */
-    PROTECTED_PAGES: ['/zh-CN/', '/download.html'],
+    PROTECTED_PAGES: ['/zh-CN/', '/download.html', '/download-package.html'],
 
     /**
      * 调试模式

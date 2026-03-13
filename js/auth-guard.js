@@ -2,8 +2,8 @@
  * 路由守卫 - 保护需要登录的页面
  */
 
-// 需要登录才能访问的页面路径（只保护下载页面）
-const PROTECTED_PAGES = ['/download.html'];
+// 需要登录才能访问的页面���径（保护下载相关页面）
+const PROTECTED_PAGES = ['/download.html', '/download-package.html'];
 
 (function() {
   const currentPath = window.location.pathname;
