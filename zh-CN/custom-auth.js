@@ -52,12 +52,29 @@
                 opacity: 0 !important;
             }
 
-            /* 用户菜单样式 - 固定在右上角 */
+            /* 户菜单样式 - 默认固定在右上角 */
             #custom-user-menu {
                 position: fixed !important;
-                top: 16px !important;
+                top: 12px !important;
                 right: 20px !important;
                 z-index: 99999 !important;
+                transition: all 0.3s ease;
+            }
+
+            /* 当窗口足够宽时，尝试与居中容器对齐 (max-w-8xl 约为 1440px) */
+            @media (min-width: 1500px) {
+                #custom-user-menu:not(.in-navbar) {
+                    right: calc(50vw - 44rem) !important; /* 45rem(720px)是容器边，减去1rem边距 */
+                }
+            }
+
+            /* 如果成功挂载进导航栏容器，则使用相对定位 */
+            #custom-user-menu.in-navbar {
+                position: relative !important;
+                top: 0 !important;
+                right: 0 !important;
+                z-index: 100 !important;
+                margin-right: 8px;
             }
             .custom-user-container {
                 display: flex;
@@ -232,7 +249,18 @@
             </div>
         `;
 
-        document.body.appendChild(userMenu);
+        // 尝试挂载到导航栏右侧的操作区域，使其跟随页面整体布局
+        // 目标是原本包含 GitHub/Releases/语言切换的那个弹性容器
+        const navOperationArea = document.querySelector('#navbar .flex-1.justify-end');
+        
+        if (navOperationArea) {
+            userMenu.classList.add('in-navbar');
+            // 插入到操作区域的最前面
+            navOperationArea.insertBefore(userMenu, navOperationArea.firstChild);
+        } else {
+            // 如果找不到导航栏容器（可能还没加载），回退到 body 挂载
+            document.body.appendChild(userMenu);
+        }
     }
 
     function observePageChanges() {
