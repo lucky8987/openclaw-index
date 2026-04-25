@@ -565,29 +565,162 @@
             color: var(--accent-primary);
         }
 
-        /* 响应式 */
-        @media (max-width: 600px) {
+        /* ===== 响应式 ===== */
+
+        /* 平板：≤768px */
+        @media (max-width: 768px) {
             .page-container {
-                padding: 40px 16px;
+                padding: 32px 20px;
             }
 
-            .qrcode-container {
-                gap: 32px;
-            }
-
-            .qrcode-item img {
-                width: 220px;
-                height: 220px;
+            .page-title {
+                font-size: 1.6rem;
             }
 
             .card {
-                padding: 24px;
+                padding: 24px 20px;
+            }
+
+            .qrcode-container {
+                gap: 28px;
+            }
+
+            .qrcode-item img {
+                width: 200px;
+                height: 200px;
+            }
+
+            /* 夸克区块：左右布局改上下 */
+            .quark-body {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .quark-qr {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                justify-content: center;
+                margin-top: 12px;
+            }
+
+            .quark-qr img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .quark-qr p {
+                margin-top: 0;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 手机：≤480px */
+        @media (max-width: 480px) {
+            .page-container {
+                padding: 24px 14px;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .page-description {
+                font-size: 0.9rem;
+                margin-bottom: 24px;
+            }
+
+            .card {
+                padding: 20px 16px;
+                border-radius: 10px;
+            }
+
+            .card-title {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+
+            .support-desc {
+                font-size: 0.875rem;
+                margin-bottom: 20px;
+            }
+
+            /* 二维码：手机上并排缩小，确保两个都能显示 */
+            .qrcode-container {
+                gap: 16px;
+                justify-content: space-around;
+            }
+
+            .qrcode-item img {
+                width: calc(44vw - 16px);
+                height: calc(44vw - 16px);
+                max-width: 160px;
+                max-height: 160px;
+                padding: 6px;
+            }
+
+            .qrcode-label {
+                font-size: 0.85rem;
+                margin-top: 8px;
+            }
+
+            /* 按钮全宽 */
+            .btn-donated {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+
+            .btn-donated-wrap {
+                width: 100%;
+            }
+
+            /* 夸克区块 */
+            .quark-info {
+                padding: 12px 14px;
+            }
+
+            .quark-row {
+                gap: 8px;
+            }
+
+            .quark-label {
+                width: 38px;
+                font-size: 0.78rem;
+            }
+
+            .quark-link {
+                font-size: 0.8rem;
+                flex: 1;
+                min-width: 0;
+            }
+
+            .quark-copy {
+                flex-shrink: 0;
+                padding: 4px 10px;
+            }
+
+            .quark-code {
+                font-size: 0.9rem;
+            }
+
+            .quark-qr img {
+                width: 100px;
+                height: 100px;
+            }
+
+            /* tooltip 避免超出屏幕 */
+            .btn-donated-wrap .tooltip {
+                white-space: normal;
+                width: 180px;
+                text-align: center;
+                left: 50%;
             }
 
             .download-item {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 14px;
+                gap: 12px;
             }
 
             .download-btn {
