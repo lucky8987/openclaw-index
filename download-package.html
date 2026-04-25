@@ -394,8 +394,61 @@
             transition: all 0.2s;
         }
 
-        .btn-donated:hover {
+        .btn-donated:hover:not(:disabled) {
             background: var(--accent-primary-hover);
+        }
+
+        .btn-donated:disabled {
+            background: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .btn-donated-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-donated-wrap .tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #334155;
+            color: #fff;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            padding: 6px 12px;
+            border-radius: 6px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        .btn-donated-wrap .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #334155;
+        }
+
+        .btn-donated-wrap:hover .tooltip {
+            opacity: 1;
+        }
+
+        .btn-hint {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            min-height: 1.2em;
+        }
+
+        .btn-hint.error {
+            color: #f59e0b;
         }
 
         /* 夸克网盘区块 */
@@ -581,8 +634,12 @@
                 </div>
 
                 <div class="payment-actions">
-                    <button class="btn-donated" id="donatedBtn">我已完成付款</button>
+                    <div class="btn-donated-wrap" id="btnWrap">
+                        <span class="tooltip" id="btnTooltip">获取支付结果中，请稍后再试</span>
+                        <button class="btn-donated" id="donatedBtn" disabled>我已完成付款</button>
+                    </div>
                 </div>
+                <p class="btn-hint" id="btnHint"></p>
             </div>
         </div>
 
@@ -624,13 +681,36 @@
     </div>
 
     <script>
+        const btn = document.getElementById('donatedBtn');
+        const hint = document.getElementById('btnHint');
+        let btnReady = false;
+
+        setTimeout(() => {
+            btnReady = true;
+            btn.disabled = false;
+            document.getElementById('btnTooltip').remove();
+            hint.textContent = '';
+        }, 5000);
+
+        btn.addEventListener('click', function () {
+            if (!btnReady) {
+                hint.textContent = '获取支付结果中，请稍后再试';
+                hint.classList.add('error');
+                setTimeout(() => {
+                    hint.classList.remove('error');
+                    hint.textContent = '';
+                }, 2000);
+                return;
+            }
+            showDownload();
+        });
+
         function showDownload() {
             document.getElementById('paymentSection').style.display = 'none';
             const dl = document.getElementById('downloadSection');
             dl.classList.add('visible');
             dl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        document.getElementById('donatedBtn').addEventListener('click', showDownload);
 
         function copyLink() {
             navigator.clipboard.writeText('https://pan.quark.cn/s/07566b24b36a?pwd=seZr').then(() => {
