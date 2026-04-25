@@ -565,9 +565,9 @@
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                         </svg>
                     </span>
-                    支持开发者（自愿）
+                    支持开发者
                 </h2>
-                <p class="support-desc">OpenClaw 完全免费，如果它对你有帮助，欢迎扫码请作者喝杯咖啡 ☕ 你也可以直接跳过免费下载。</p>
+                <p class="support-desc">支付 1～99 元即可获取安装包，扫描下方二维码完成支付后点击按钮获取下载链接。</p>
 
                 <div class="qrcode-container">
                     <div class="qrcode-item">
@@ -581,8 +581,7 @@
                 </div>
 
                 <div class="payment-actions">
-                    <button class="btn-skip" id="skipBtn">跳过，直接下载</button>
-                    <button class="btn-donated" id="donatedBtn">已支持，去下载 ❤️</button>
+                    <button class="btn-donated" id="donatedBtn">我已完成付款</button>
                 </div>
             </div>
         </div>
@@ -631,7 +630,6 @@
             dl.classList.add('visible');
             dl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        document.getElementById('skipBtn').addEventListener('click', showDownload);
         document.getElementById('donatedBtn').addEventListener('click', showDownload);
 
         function copyLink() {
