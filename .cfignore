@@ -1,0 +1,13 @@
+node_modules/
+*.log
+.git/
+scrape-docs.js
+scrape-docs.ps1
+scrape-assets.js
+fix-links.js
+fix-images-and-html.js
+fix-script-tags.py
+add-custom-auth.py
+update-favicon.js
+server.js
+app.js

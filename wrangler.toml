@@ -1,0 +1,7 @@
+name = "openclaw-index"
+compatibility_date = "2024-01-01"
+
+[assets]
+directory = "."
+not_found_handling = "single-page-application"
+exclude = ["node_modules", ".git", "*.sh", "*.py", "server.js", "app.js", "scrape-*.js", "fix-*.js", "update-favicon.js"]
