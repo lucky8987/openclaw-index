@@ -189,39 +189,18 @@
         <h2>软件下载</h2>
 
         <div id="loading" class="loading">
-            正在检查权限...
-        </div>
-
-        <div id="noPermission" class="no-permission" style="display:none;">
-            <h3>您还没有下载权限</h3>
-            <p>支付后即可永久获得软件下载权限</p>
-            <div class="price">¥99 <span>/ 永久</span></div>
-            <button id="payBtn" class="btn-pay">立即支付</button>
+            加载中...
         </div>
 
         <div id="fileList" class="file-list" style="display:none;">
-            <h3 style="margin-bottom: 20px; color: #4CAF50;">✓ 您已有下载权限</h3>
+            <h3 style="margin-bottom: 20px; color: #4CAF50;">选择适合您系统的安装包</h3>
             <div id="files"></div>
         </div>
 
         <div id="errorMessage" class="error-message" style="display:none;"></div>
     </div>
 
-    <!-- 二维码弹窗 -->
-    <div id="qrModal" class="qr-modal">
-        <div class="qr-content">
-            <h3>请使用支付宝扫码支付</h3>
-            <div id="qrcode"></div>
-            <p>支付金额：<strong>¥99</strong></p>
-            <p id="orderStatus">等待支付中...</p>
-            <button id="closeQrBtn" class="btn-close">关闭</button>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script src="js/config.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/auth-guard.js"></script>
     <script src="js/download.js"></script>
 </body>
 </html>

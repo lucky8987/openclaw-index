@@ -1,0 +1,13 @@
+{
+  "name": "openclaw-index",
+  "version": "1.0.0",
+  "description": "龙虾机器人 OpenClaw 官方中文网站",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
