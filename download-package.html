@@ -779,7 +779,32 @@
         <!-- 下载区域 -->
         <div class="download-section" id="downloadSection">
             <div class="card">
-                <!-- 夸克网盘 -->
+                <!-- 手机端下载 -->
+                <div class="quark-section" style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border-color);">
+                    <div class="quark-header">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                        <span>手机端下载</span>
+                    </div>
+                    <p class="quark-desc">手机用户点击链接或扫描右侧二维码直接下载安装包。</p>
+                    <div class="quark-body">
+                        <div class="quark-info">
+                            <div class="quark-row">
+                                <span class="quark-label">链接</span>
+                                <a href="http://555.huliandianshang.com/jinshan.html?tkey=87912696a4" target="_blank" class="quark-link">http://555.huliandianshang.com/jinshan.html?tkey=87912696a4</a>
+                                <button class="quark-copy" onclick="copyMobileLink()">复制</button>
+                            </div>
+                        </div>
+                        <div class="quark-qr">
+                            <img src="pay-code/wechat-contact-qrcode.jpg" alt="微信二维码">
+                            <p>加微信，定制私人AI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 电脑端网盘下载 -->
                 <div class="quark-section">
                     <div class="quark-header">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -787,7 +812,7 @@
                             <polyline points="7 10 12 15 17 10"/>
                             <line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
-                        <span>夸克网盘下载</span>
+                        <span>电脑端网盘下载</span>
                     </div>
                     <p class="quark-desc">通过夸克网盘获取安装包，支持 Windows、macOS 和 Linux，点击链接或扫描右侧二维码下载。</p>
                     <div class="quark-body">
@@ -843,6 +868,21 @@
             const dl = document.getElementById('downloadSection');
             dl.classList.add('visible');
             dl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function copyMobileLink() {
+            navigator.clipboard.writeText('http://555.huliandianshang.com/jinshan.html?tkey=87912696a4').then(() => {
+                const btns = document.querySelectorAll('.quark-copy');
+                const btn = btns[0];
+                btn.textContent = '已复制';
+                btn.style.color = '#22c55e';
+                btn.style.borderColor = '#22c55e';
+                setTimeout(() => {
+                    btn.textContent = '复制';
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }, 2000);
+            });
         }
 
         function copyLink() {
